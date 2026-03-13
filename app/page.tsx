@@ -2,16 +2,13 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import ProductGrid from "./components/ProductGrid";
 import type { IconType } from "react-icons";
 import {
   FaCircleCheck,
   FaHandHoldingHeart,
   FaLeaf,
   FaTruckFast,
-  FaFacebookF,
-  FaInstagram,
-  FaWhatsapp,
-  FaYoutube,
 } from "react-icons/fa6";
 
 const heroSlides = [
@@ -33,6 +30,13 @@ const heroSlides = [
     cta: "View Products",
     image: "/images/hero-img3.jpeg",
   },
+];
+
+const displayImages = [
+  "/images/display-img1.jpeg",
+  "/images/dispaly-img2.jpeg",
+  "/images/display-img3.jpeg",
+  "/images/display-img4.jpeg",
 ];
 
 const trustCards: { title: string; description: string; icon: IconType }[] = [
@@ -59,137 +63,12 @@ const trustCards: { title: string; description: string; icon: IconType }[] = [
   },
 ];
 
-const seedProducts = [
-  {
-    name: "GoldenGrow Hybrid Wheat",
-    description: "Uniform growth with strong grain quality and high vigour.",
-    price: "₹1,250 / 10 kg",
-  },
-  {
-    name: "Shakti Hybrid Rice",
-    description: "High tillering seed for improved yield and disease tolerance.",
-    price: "₹1,480 / 10 kg",
-  },
-  {
-    name: "SunRise Maize Pro",
-    description: "Early maturing maize with sturdy stalks and bold cobs.",
-    price: "₹980 / 5 kg",
-  },
-  {
-    name: "FreshLeaf Vegetable Mix",
-    description: "Balanced seasonal pack for kitchen gardens and small plots.",
-    price: "₹450 / pack",
-  },
-  {
-    name: "GreenGold Hybrid Bajra",
-    description: "Drought-tolerant seed ideal for semi-arid regions.",
-    price: "₹720 / 10 kg",
-  },
-  {
-    name: "VitalVeg Tomato Prime",
-    description: "Firm fruit, strong yield, and longer shelf life.",
-    price: "₹600 / 100 g",
-  },
-];
-
-const medicineProducts = [
-  {
-    name: "NutriMax NPK 19-19-19",
-    description: "Quick-release balanced fertilizer for fast growth.",
-    price: "₹1,050 / 5 kg",
-  },
-  {
-    name: "RootShield Bio Fungicide",
-    description: "Controls soil-borne fungi and supports healthy roots.",
-    price: "₹520 / 1 L",
-  },
-  {
-    name: "PestGuard Insecticide",
-    description: "Broad-spectrum control for common sucking pests.",
-    price: "₹680 / 1 L",
-  },
-  {
-    name: "GreenBoost Organic Spray",
-    description: "Improves plant immunity and stress tolerance.",
-    price: "₹390 / 1 L",
-  },
-  {
-    name: "YieldPlus Micronutrient Mix",
-    description: "Corrects deficiencies and boosts flowering.",
-    price: "₹540 / 2 kg",
-  },
-  {
-    name: "BlossomCare Flower Booster",
-    description: "Enhances fruit set and reduces flower drop.",
-    price: "₹460 / 1 L",
-  },
-];
-
-const machineryProducts = [
-  {
-    name: "FieldMaster Power Tiller",
-    description: "Compact tiller for quick soil preparation.",
-    price: "₹68,000",
-  },
-  {
-    name: "AquaJet Irrigation Pump",
-    description: "Reliable pump for efficient water delivery.",
-    price: "₹18,500",
-  },
-  {
-    name: "ProSpray Boom Sprayer",
-    description: "Uniform spray coverage for large plots.",
-    price: "₹12,900",
-  },
-  {
-    name: "HarvestMate Mini Harvester",
-    description: "Cuts and gathers crops with minimal grain loss.",
-    price: "₹1,95,000",
-  },
-  {
-    name: "TorqueDrive Cultivator",
-    description: "Multi-purpose cultivator for weeding and aeration.",
-    price: "₹24,500",
-  },
-  {
-    name: "SeedPro Planter",
-    description: "Consistent seed spacing for even germination.",
-    price: "₹32,000",
-  },
-];
-
-const toolsProducts = [
-  {
-    name: "Heavy-Duty Shovel",
-    description: "Strong steel blade for digging and leveling.",
-    price: "₹650",
-  },
-  {
-    name: "Precision Pruning Set",
-    description: "Clean cuts for healthy orchard maintenance.",
-    price: "₹950",
-  },
-  {
-    name: "RainMist Sprinkler Kit",
-    description: "Easy-install sprinkler set for uniform irrigation.",
-    price: "₹1,200",
-  },
-  {
-    name: "GripMax Hand Trowel",
-    description: "Comfortable grip with rust-resistant finish.",
-    price: "₹220",
-  },
-  {
-    name: "CropCare Weeding Hoe",
-    description: "Lightweight hoe for fast weeding.",
-    price: "₹480",
-  },
-  {
-    name: "Harvest Basket Pro",
-    description: "Durable basket for easy crop handling.",
-    price: "₹320",
-  },
-];
+import {
+  machineryProducts,
+  medicineProducts,
+  seedProducts,
+  toolsProducts,
+} from "./data/products";
 
 const testimonials = [
   {
@@ -234,71 +113,6 @@ function useAutoCarousel(length: number, delayMs: number) {
   return { index, setIndex: setSafeIndex };
 }
 
-function ProductGrid({
-  title,
-  subtitle,
-  buttonLabel,
-  items,
-}: {
-  title: string;
-  subtitle: string;
-  buttonLabel: string;
-  items: { name: string; description: string; price: string }[];
-}) {
-  return (
-    <section className="section-pad" aria-label={title}>
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
-        <div className="flex flex-col gap-3">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--green-700)]">
-            Products
-          </p>
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h2 className="heading-font text-3xl font-semibold text-[var(--ink-900)] md:text-4xl">
-                {title}
-              </h2>
-              <p className="mt-3 max-w-2xl text-base text-[var(--ink-700)]">
-                {subtitle}
-              </p>
-            </div>
-            <button className="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-[var(--green-700)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--green-800)] md:mt-0">
-              View All
-            </button>
-          </div>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((item) => (
-            <article
-              key={item.name}
-              className="soft-shadow flex h-full flex-col justify-between rounded-3xl bg-white p-6"
-            >
-              <div className="flex flex-col gap-4">
-                <div className="h-40 rounded-2xl bg-[var(--green-200)]/60 bg-[radial-gradient(circle_at_top,_rgba(59,109,17,0.2),_transparent_70%)]"></div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[var(--ink-900)]">
-                    {item.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-[var(--ink-700)]">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-6 flex items-center justify-between">
-                <p className="text-base font-semibold text-[var(--green-800)]">
-                  {item.price}
-                </p>
-                <button className="rounded-full border border-[var(--green-700)] px-4 py-2 text-sm font-semibold text-[var(--green-800)] transition hover:bg-[var(--green-700)] hover:text-white">
-                  {buttonLabel}
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function Home() {
   const hero = useAutoCarousel(heroSlides.length, 3000);
   const reviewCarousel = useAutoCarousel(testimonials.length, 4000);
@@ -307,105 +121,9 @@ export default function Home() {
     () => testimonials[reviewCarousel.index],
     [reviewCarousel.index],
   );
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-      <header className="sticky top-0 z-30 border-b border-white/30 bg-white/80 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Narayana Agri Solutions logo"
-              width={200}
-              height={80}
-              className="h-16 w-40 object-contain"
-            />
-          </div>
-          <nav className="hidden items-center gap-6 text-sm font-semibold text-[var(--ink-700)] lg:flex">
-            <a className="hover:text-[var(--green-700)]" href="#home">
-              Home
-            </a>
-            <a className="hover:text-[var(--green-700)]" href="#about">
-              About Us
-            </a>
-            <a className="hover:text-[var(--green-700)]" href="#products">
-              Products
-            </a>
-            <a className="hover:text-[var(--green-700)]" href="#why-us">
-              Why Choose Us
-            </a>
-            <a className="hover:text-[var(--green-700)]" href="#testimonials">
-              Testimonials
-            </a>
-            <a className="hover:text-[var(--green-700)]" href="#contact">
-              Contact
-            </a>
-          </nav>
-          <button className="hidden rounded-full bg-[var(--green-700)] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[var(--green-800)] lg:inline-flex">
-            Shop Now
-          </button>
-          <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--green-200)] text-[var(--green-800)] transition hover:border-[var(--green-700)] lg:hidden"
-            aria-label="Open menu"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
-        </div>
-        {menuOpen && (
-          <div className="border-t border-white/40 bg-white/95 px-6 pb-6 pt-4 lg:hidden">
-            <nav className="flex flex-col gap-4 text-sm font-semibold text-[var(--ink-700)]">
-              <a
-                className="hover:text-[var(--green-700)]"
-                href="#home"
-                onClick={() => setMenuOpen(false)}
-              >
-                Home
-              </a>
-              <a
-                className="hover:text-[var(--green-700)]"
-                href="#about"
-                onClick={() => setMenuOpen(false)}
-              >
-                About Us
-              </a>
-              <a
-                className="hover:text-[var(--green-700)]"
-                href="#products"
-                onClick={() => setMenuOpen(false)}
-              >
-                Products
-              </a>
-              <a
-                className="hover:text-[var(--green-700)]"
-                href="#why-us"
-                onClick={() => setMenuOpen(false)}
-              >
-                Why Choose Us
-              </a>
-              <a
-                className="hover:text-[var(--green-700)]"
-                href="#testimonials"
-                onClick={() => setMenuOpen(false)}
-              >
-                Testimonials
-              </a>
-              <a
-                className="hover:text-[var(--green-700)]"
-                href="#contact"
-                onClick={() => setMenuOpen(false)}
-              >
-                Contact
-              </a>
-            </nav>
-            <button className="mt-5 w-full rounded-full bg-[var(--green-700)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--green-800)]">
-              Shop Now
-            </button>
-          </div>
-        )}
-      </header>
-
       <main>
         <section
           id="home"
@@ -446,6 +164,39 @@ export default function Home() {
                     hero.index === idx ? "bg-white" : "bg-white/40"
                   }`}
                 ></button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-pad">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
+            <div className="flex flex-col gap-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--green-700)]">
+                Our Work
+              </p>
+              <h2 className="heading-font text-3xl font-semibold text-[var(--ink-900)] md:text-4xl">
+                Field-ready solutions in action
+              </h2>
+              <p className="max-w-2xl text-base text-[var(--ink-700)]">
+                A quick look at how Narayana Agri Solutions supports farmers
+                across India with trusted inputs and practical innovation.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {displayImages.map((src, index) => (
+                <div
+                  key={src}
+                  className="relative h-60 overflow-hidden rounded-3xl md:h-72"
+                >
+                  <Image
+                    src={src}
+                    alt={`Narayana Agri Solutions showcase ${index + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -603,30 +354,50 @@ export default function Home() {
         </section>
 
         <div id="products">
-          <ProductGrid
-            title="Our Seeds Collection"
-            subtitle="Hybrid and organic options selected for consistent germination and stronger yield."
-            buttonLabel="Buy Now"
-            items={seedProducts}
-          />
-          <ProductGrid
-            title="Plant Medicine & Fertilizers"
-            subtitle="Balanced nutrition and protection to keep crops healthy at every stage."
-            buttonLabel="Buy Now"
-            items={medicineProducts}
-          />
-          <ProductGrid
-            title="Agriculture Machinery"
-            subtitle="Reliable equipment for preparation, planting, irrigation, and harvest."
-            buttonLabel="View Details"
-            items={machineryProducts}
-          />
-          <ProductGrid
-            title="Farm Tools & Equipment"
-            subtitle="Durable, easy-to-use tools for everyday farm work."
-            buttonLabel="Buy Now"
-            items={toolsProducts}
-          />
+          <div id="seeds">
+            <ProductGrid
+              title="Our Seeds Collection"
+              subtitle="Hybrid and organic options selected for consistent germination and stronger yield."
+              buttonLabel="Buy Now"
+              items={seedProducts}
+              showHeader
+              viewAllHref="/seeds"
+              limit={3}
+            />
+          </div>
+          <div id="medicine">
+            <ProductGrid
+              title="Plant Medicine & Fertilizers"
+              subtitle="Balanced nutrition and protection to keep crops healthy at every stage."
+              buttonLabel="Buy Now"
+              items={medicineProducts}
+              showHeader
+              viewAllHref="/medicine"
+              limit={3}
+            />
+          </div>
+          <div id="machinery">
+            <ProductGrid
+              title="Agriculture Machinery"
+              subtitle="Reliable equipment for preparation, planting, irrigation, and harvest."
+              buttonLabel="View Details"
+              items={machineryProducts}
+              showHeader
+              viewAllHref="/machinery"
+              limit={3}
+            />
+          </div>
+          <div id="tools">
+            <ProductGrid
+              title="Farm Tools & Equipment"
+              subtitle="Durable, easy-to-use tools for everyday farm work."
+              buttonLabel="Buy Now"
+              items={toolsProducts}
+              showHeader
+              viewAllHref="/tools"
+              limit={3}
+            />
+          </div>
         </div>
 
         <section
@@ -774,77 +545,6 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-[var(--green-900)] text-white">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-12 lg:grid-cols-[1.2fr_1fr_1fr]">
-          <div className="flex flex-col gap-4">
-          <div className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Narayana Agri Solutions logo"
-              width={200}
-              height={80}
-              className="h-16 w-40 object-contain"
-            />
-          </div>
-            <p className="text-sm text-white/70">
-              Certified seeds, plant protection, machinery, and tools trusted by
-              farmers nationwide.
-            </p>
-            <div className="flex gap-3">
-              {[
-                { label: "Facebook", icon: FaFacebookF },
-                { label: "Instagram", icon: FaInstagram },
-                { label: "YouTube", icon: FaYoutube },
-                { label: "WhatsApp", icon: FaWhatsapp },
-              ].map((item) => (
-                <button
-                  key={item.label}
-                  aria-label={item.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-sm text-white transition hover:border-white"
-                >
-                  <item.icon />
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="grid gap-2 text-sm text-white/70">
-            <p className="text-base font-semibold text-white">Quick Links</p>
-            <a href="#home" className="hover:text-white">
-              Home
-            </a>
-            <a href="#about" className="hover:text-white">
-              About Us
-            </a>
-            <a href="#products" className="hover:text-white">
-              Products
-            </a>
-            <a href="#why-us" className="hover:text-white">
-              Why Choose Us
-            </a>
-            <a href="#contact" className="hover:text-white">
-              Contact
-            </a>
-          </div>
-          <div className="flex flex-col gap-3">
-            <p className="text-base font-semibold">Find Us</p>
-            <div className="h-40 overflow-hidden rounded-2xl border border-white/30 bg-white/10">
-              <iframe
-                title="Narayana Agri Solutions Location"
-                className="h-full w-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://maps.google.com/maps?q=25.6168639,85.1874319&z=17&output=embed"
-              ></iframe>
-            </div>
-            <p className="text-xs text-white/60">
-              Patna, Bihar (25.6168639, 85.1874319)
-            </p>
-          </div>
-        </div>
-        <div className="border-t border-white/10 px-6 py-4 text-center text-xs text-white/60">
-          © 2026 Narayana Agri Solutions. All rights reserved.
-        </div>
-      </footer>
     </div>
   );
 }

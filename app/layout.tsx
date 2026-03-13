@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import SiteFooter from "./components/SiteFooter";
+import SiteHeader from "./components/SiteHeader";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -29,9 +31,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${manrope.variable} ${playfair.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${manrope.variable} ${playfair.variable} antialiased`}
+        suppressHydrationWarning
+      >
+        <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
