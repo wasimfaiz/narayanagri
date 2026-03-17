@@ -100,15 +100,13 @@ export const machineryProducts: Product[] = [
     name: "FieldMaster Power Tiller",
     description: "Compact tiller for quick soil preparation.",
     price: "₹68,000",
-    image:
-      "https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/product-img/roster-machine.jpeg",
   },
   {
     name: "AquaJet Irrigation Pump",
     description: "Reliable pump for efficient water delivery.",
     price: "₹18,500",
-    image:
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/product-img/roaster.jpeg",
   },
   {
     name: "ProSpray Boom Sprayer",
@@ -137,6 +135,12 @@ export const machineryProducts: Product[] = [
     price: "₹32,000",
     image:
       "https://images.unsplash.com/photo-1472220625704-91e1462799b2?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Agri-Roaster",
+    description: "A specialized roaster for various agricultural products.",
+    price: "₹45,000",
+    image: "/images/product-img/roaster.jpeg",
   },
 ];
 

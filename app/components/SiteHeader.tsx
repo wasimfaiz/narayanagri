@@ -61,7 +61,10 @@ export default function SiteHeader() {
               </Link>
             </div>
           </div>
-          <Link className="hover:text-[var(--green-700)]" href="/#why-us">
+          <Link
+            className="hover:text-[var(--green-700)]"
+            href="/why-choose-us"
+          >
             Why Choose Us
           </Link>
           <Link
@@ -144,7 +147,7 @@ export default function SiteHeader() {
             </div>
             <Link
               className="hover:text-[var(--green-700)]"
-              href="/#why-us"
+              href="/why-choose-us"
               onClick={() => setMenuOpen(false)}
             >
               Why Choose Us

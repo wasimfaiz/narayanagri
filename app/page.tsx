@@ -322,6 +322,58 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section-pad bg-gray-50">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
+            <div className="flex flex-col gap-3 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--green-700)]">
+                Our Impact
+              </p>
+              <h2 className="heading-font text-3xl font-semibold text-[var(--ink-900)] md:text-4xl">
+                By the Numbers
+              </h2>
+              <p className="mx-auto max-w-2xl text-base text-[var(--ink-700)]">
+                We are proud to have supported thousands of farmers with
+                quality products and reliable service.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 text-center md:grid-cols-3">
+              <div className="rounded-3xl bg-white p-8 soft-shadow">
+                <p className="heading-font text-5xl font-semibold text-[var(--green-700)]">
+                  10,000+
+                </p>
+                <p className="mt-2 text-lg font-semibold text-[var(--ink-900)]">
+                  Farmers Served
+                </p>
+                <p className="mt-1 text-sm text-[var(--ink-700)]">
+                  Across India
+                </p>
+              </div>
+              <div className="rounded-3xl bg-white p-8 soft-shadow">
+                <p className="heading-font text-5xl font-semibold text-[var(--green-700)]">
+                  50,000+
+                </p>
+                <p className="mt-2 text-lg font-semibold text-[var(--ink-900)]">
+                  Products Delivered
+                </p>
+                <p className="mt-1 text-sm text-[var(--ink-700)]">
+                  Seeds, Medicines, Tools
+                </p>
+              </div>
+              <div className="rounded-3xl bg-white p-8 soft-shadow">
+                <p className="heading-font text-5xl font-semibold text-[var(--green-700)]">
+                  15+
+                </p>
+                <p className="mt-2 text-lg font-semibold text-[var(--ink-900)]">
+                  States Covered
+                </p>
+                <p className="mt-1 text-sm text-[var(--ink-700)]">
+                  Expanding our reach
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="why-us" className="section-pad">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
             <div className="flex flex-col gap-3">
