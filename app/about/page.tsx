@@ -1,4 +1,15 @@
 import Image from "next/image";
+import {
+  FaCalendarCheck,
+  FaChartLine,
+  FaFlask,
+  FaLeaf,
+  FaPeopleGroup,
+  FaSeedling,
+  FaShieldHeart,
+  FaSitemap,
+  FaWarehouse,
+} from "react-icons/fa6";
 
 const aboutImages = [
   "/images/about-img/WhatsApp%20Image%202026-03-13%20at%202.36.15%20PM.jpeg",
@@ -13,6 +24,8 @@ const stats = [
   { label: "Production Units", value: "2" },
   { label: "Annual Turnover", value: "₹10 Crores" },
 ];
+
+const statIcons = [FaCalendarCheck, FaPeopleGroup, FaWarehouse, FaChartLine];
 
 const values = [
   {
@@ -36,6 +49,8 @@ const values = [
       "Our team develops better formulations and technologies that increase yield with lower impact.",
   },
 ];
+
+const valueIcons = [FaShieldHeart, FaSeedling, FaLeaf, FaFlask];
 
 const milestones = [
   {
@@ -63,6 +78,8 @@ const milestones = [
       "Expanded farmer training on sustainable practices and low-impact solutions.",
   },
 ];
+
+const milestoneIcons = [FaSitemap, FaChartLine, FaWarehouse, FaLeaf];
 
 export default function AboutPage() {
   return (
@@ -128,19 +145,25 @@ export default function AboutPage() {
       <section className="section-pad">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="card-shadow rounded-3xl bg-white p-6"
-              >
-                <p className="text-sm uppercase tracking-[0.2em] text-[var(--green-700)]">
-                  {stat.label}
-                </p>
-                <p className="mt-3 text-2xl font-semibold text-[var(--ink-900)]">
-                  {stat.value}
-                </p>
-              </div>
-            ))}
+            {stats.map((stat, index) => {
+              const Icon = statIcons[index];
+              return (
+                <div
+                  key={stat.label}
+                  className="card-shadow rounded-3xl bg-white p-6"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-xl text-[var(--green-700)]">
+                    <Icon />
+                  </div>
+                  <p className="mt-4 text-sm uppercase tracking-[0.2em] text-[var(--green-700)]">
+                    {stat.label}
+                  </p>
+                  <p className="mt-3 text-2xl font-semibold text-[var(--ink-900)]">
+                    {stat.value}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -189,19 +212,25 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="soft-shadow rounded-3xl bg-white p-6"
-              >
-                <h3 className="text-lg font-semibold text-[var(--ink-900)]">
-                  {value.title}
-                </h3>
-                <p className="mt-2 text-sm text-[var(--ink-700)]">
-                  {value.description}
-                </p>
-              </div>
-            ))}
+            {values.map((value, index) => {
+              const Icon = valueIcons[index];
+              return (
+                <div
+                  key={value.title}
+                  className="soft-shadow rounded-3xl bg-white p-6"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-xl text-[var(--green-700)]">
+                    <Icon />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-[var(--ink-900)]">
+                    {value.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-[var(--ink-700)]">
+                    {value.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -217,22 +246,28 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {milestones.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-3xl border border-[var(--green-200)] bg-white p-6"
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--green-700)]">
-                  {item.year}
-                </p>
-                <h3 className="mt-3 text-lg font-semibold text-[var(--ink-900)]">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-[var(--ink-700)]">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
+            {milestones.map((item, index) => {
+              const Icon = milestoneIcons[index];
+              return (
+                <div
+                  key={item.title}
+                  className="rounded-3xl border border-[var(--green-200)] bg-white p-6"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-xl text-[var(--green-700)]">
+                    <Icon />
+                  </div>
+                  <p className="mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--green-700)]">
+                    {item.year}
+                  </p>
+                  <h3 className="mt-3 text-lg font-semibold text-[var(--ink-900)]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-[var(--ink-700)]">
+                    {item.detail}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

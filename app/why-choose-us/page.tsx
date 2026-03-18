@@ -1,4 +1,21 @@
 import Image from "next/image";
+import {
+  FaArrowTrendUp,
+  FaBookOpen,
+  FaChartSimple,
+  FaClipboardCheck,
+  FaComments,
+  FaHandshake,
+  FaLeaf,
+  FaLightbulb,
+  FaMapLocationDot,
+  FaPeopleGroup,
+  FaRoute,
+  FaSeedling,
+  FaShieldHeart,
+  FaTruckFast,
+  FaWheatAwn,
+} from "react-icons/fa6";
 
 const pillars = [
   {
@@ -185,6 +202,19 @@ const programOutcomes = [
   },
 ];
 
+const highlightIcons = [FaLeaf, FaBookOpen, FaHandshake];
+const valueIcons = [FaSeedling, FaChartSimple, FaPeopleGroup];
+const pillarIcons = [
+  FaWheatAwn,
+  FaBookOpen,
+  FaMapLocationDot,
+  FaComments,
+  FaLightbulb,
+  FaShieldHeart,
+];
+const outcomeIcons = [FaArrowTrendUp, FaRoute, FaClipboardCheck, FaTruckFast];
+const journeyIcons = [FaMapLocationDot, FaChartSimple, FaHandshake, FaArrowTrendUp];
+
 export default function WhyChooseUsPage() {
   return (
     <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
@@ -208,22 +238,28 @@ export default function WhyChooseUsPage() {
                 resilient businesses that grow year after year.
               </p>
               <div className="grid gap-4 sm:grid-cols-3">
-                {highlights.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl border border-white/70 bg-white/80 p-4 shadow-[0_12px_30px_rgba(31,60,10,0.12)]"
-                  >
-                    <p className="heading-font text-3xl text-[var(--green-800)]">
-                      {item.metric}
-                    </p>
-                    <p className="text-sm font-semibold text-[var(--ink-900)]">
-                      {item.label}
-                    </p>
-                    <p className="mt-2 text-xs text-[var(--ink-700)]">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
+                {highlights.map((item, index) => {
+                  const Icon = highlightIcons[index];
+                  return (
+                    <div
+                      key={item.label}
+                      className="rounded-2xl border border-white/70 bg-white/80 p-4 shadow-[0_12px_30px_rgba(31,60,10,0.12)]"
+                    >
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-lg text-[var(--green-700)]">
+                        <Icon />
+                      </div>
+                      <p className="mt-4 heading-font text-3xl text-[var(--green-800)]">
+                        {item.metric}
+                      </p>
+                      <p className="text-sm font-semibold text-[var(--ink-900)]">
+                        {item.label}
+                      </p>
+                      <p className="mt-2 text-xs text-[var(--ink-700)]">
+                        {item.description}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="relative">
@@ -261,28 +297,34 @@ export default function WhyChooseUsPage() {
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="rounded-3xl border border-[var(--green-200)] bg-white p-6 shadow-[0_16px_40px_rgba(31,60,10,0.08)]"
-              >
-                <h3 className="heading-font text-xl text-[var(--ink-900)]">
-                  {value.title}
-                </h3>
-                <p className="mt-3 text-sm text-[var(--ink-700)]">
-                  {value.description}
-                </p>
-                <p className="mt-3 text-sm text-[var(--ink-700)]">
-                  {value.detail}
-                </p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--green-700)]">
-                  Outcome
-                </p>
-                <p className="mt-2 text-sm text-[var(--ink-700)]">
-                  {value.outcome}
-                </p>
-              </div>
-            ))}
+            {values.map((value, index) => {
+              const Icon = valueIcons[index];
+              return (
+                <div
+                  key={value.title}
+                  className="rounded-3xl border border-[var(--green-200)] bg-white p-6 shadow-[0_16px_40px_rgba(31,60,10,0.08)]"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-xl text-[var(--green-700)]">
+                    <Icon />
+                  </div>
+                  <h3 className="mt-4 heading-font text-xl text-[var(--ink-900)]">
+                    {value.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-[var(--ink-700)]">
+                    {value.description}
+                  </p>
+                  <p className="mt-3 text-sm text-[var(--ink-700)]">
+                    {value.detail}
+                  </p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--green-700)]">
+                    Outcome
+                  </p>
+                  <p className="mt-2 text-sm text-[var(--ink-700)]">
+                    {value.outcome}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -302,51 +344,57 @@ export default function WhyChooseUsPage() {
             </p>
           </div>
           <div className="grid gap-10">
-            {pillars.map((item, index) => (
-              <div
-                key={item.title}
-                className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]"
-              >
+            {pillars.map((item, index) => {
+              const Icon = pillarIcons[index];
+              return (
                 <div
-                  className={`relative h-80 w-full overflow-hidden rounded-[2.25rem] ${
-                    index % 2 === 1 ? "lg:order-last" : ""
-                  }`}
+                  key={item.title}
+                  className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]"
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${item.tone} to-transparent`}
-                  />
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex flex-col gap-4">
-                  <h3 className="heading-font text-2xl text-[var(--ink-900)]">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-[var(--ink-700)] md:text-base">
-                    {item.description}
-                  </p>
-                  <p className="text-sm text-[var(--ink-700)] md:text-base">
-                    {item.detail}
-                  </p>
-                  <ul className="ml-4 list-disc text-sm text-[var(--ink-700)]">
-                    {item.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                  <div className="rounded-2xl border border-[var(--green-200)] bg-[var(--cream-50)] p-4 text-sm text-[var(--ink-700)]">
-                    <span className="font-semibold text-[var(--ink-900)]">
-                      What you gain:
-                    </span>{" "}
-                    {item.gain}
+                    className={`relative h-80 w-full overflow-hidden rounded-[2.25rem] ${
+                      index % 2 === 1 ? "lg:order-last" : ""
+                    }`}
+                  >
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${item.tone} to-transparent`}
+                    />
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-xl text-[var(--green-700)]">
+                      <Icon />
+                    </div>
+                    <h3 className="heading-font text-2xl text-[var(--ink-900)]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-[var(--ink-700)] md:text-base">
+                      {item.description}
+                    </p>
+                    <p className="text-sm text-[var(--ink-700)] md:text-base">
+                      {item.detail}
+                    </p>
+                    <ul className="ml-4 list-disc text-sm text-[var(--ink-700)]">
+                      {item.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                    <div className="rounded-2xl border border-[var(--green-200)] bg-[var(--cream-50)] p-4 text-sm text-[var(--ink-700)]">
+                      <span className="font-semibold text-[var(--ink-900)]">
+                        What you gain:
+                      </span>{" "}
+                      {item.gain}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -366,22 +414,28 @@ export default function WhyChooseUsPage() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {programOutcomes.map((outcome) => (
-              <div
-                key={outcome.label}
-                className="rounded-3xl border border-[var(--green-200)] bg-white p-6 shadow-[0_16px_40px_rgba(31,60,10,0.08)]"
-              >
-                <p className="heading-font text-3xl text-[var(--green-800)]">
-                  {outcome.metric}
-                </p>
-                <p className="mt-2 text-sm font-semibold text-[var(--ink-900)]">
-                  {outcome.label}
-                </p>
-                <p className="mt-3 text-sm text-[var(--ink-700)]">
-                  {outcome.description}
-                </p>
-              </div>
-            ))}
+            {programOutcomes.map((outcome, index) => {
+              const Icon = outcomeIcons[index];
+              return (
+                <div
+                  key={outcome.label}
+                  className="rounded-3xl border border-[var(--green-200)] bg-white p-6 shadow-[0_16px_40px_rgba(31,60,10,0.08)]"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-xl text-[var(--green-700)]">
+                    <Icon />
+                  </div>
+                  <p className="mt-4 heading-font text-3xl text-[var(--green-800)]">
+                    {outcome.metric}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-[var(--ink-900)]">
+                    {outcome.label}
+                  </p>
+                  <p className="mt-3 text-sm text-[var(--ink-700)]">
+                    {outcome.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -397,31 +451,37 @@ export default function WhyChooseUsPage() {
             </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-4">
-            {journeySteps.map((step, index) => (
-              <div
-                key={step.title}
-                className="relative overflow-hidden rounded-3xl border border-[var(--green-200)] bg-white p-6 shadow-[0_14px_34px_rgba(31,60,10,0.08)]"
-              >
-                <div className="absolute right-4 top-4 text-xs font-semibold text-[var(--green-700)]">
-                  0{index + 1}
+            {journeySteps.map((step, index) => {
+              const Icon = journeyIcons[index];
+              return (
+                <div
+                  key={step.title}
+                  className="relative overflow-hidden rounded-3xl border border-[var(--green-200)] bg-white p-6 shadow-[0_14px_34px_rgba(31,60,10,0.08)]"
+                >
+                  <div className="absolute right-4 top-4 text-xs font-semibold text-[var(--green-700)]">
+                    0{index + 1}
+                  </div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-xl text-[var(--green-700)]">
+                    <Icon />
+                  </div>
+                  <h3 className="mt-4 heading-font text-xl text-[var(--ink-900)]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-[var(--ink-700)]">
+                    {step.description}
+                  </p>
+                  <p className="mt-3 text-sm text-[var(--ink-700)]">
+                    {step.detail}
+                  </p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--green-700)]">
+                    Outcome
+                  </p>
+                  <p className="mt-2 text-sm text-[var(--ink-700)]">
+                    {step.outcome}
+                  </p>
                 </div>
-                <h3 className="heading-font text-xl text-[var(--ink-900)]">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm text-[var(--ink-700)]">
-                  {step.description}
-                </p>
-                <p className="mt-3 text-sm text-[var(--ink-700)]">
-                  {step.detail}
-                </p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--green-700)]">
-                  Outcome
-                </p>
-                <p className="mt-2 text-sm text-[var(--ink-700)]">
-                  {step.outcome}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
