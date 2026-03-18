@@ -3,6 +3,7 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <SiteHeader />
         {children}
+        <WhatsAppFloat />
         <SiteFooter />
       </body>
     </html>
