@@ -3,9 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isProductsPage = ["/seeds", "/medicine", "/machinery", "/tools"].includes(pathname);
+  const navLinkClass = (isActive: boolean) =>
+    isActive
+      ? "text-[var(--green-700)]"
+      : "text-[var(--ink-700)] hover:text-[var(--green-700)]";
 
   return (
     <header className="sticky top-0 z-30 border-b border-white/30 bg-white/80 backdrop-blur">
@@ -19,16 +26,16 @@ export default function SiteHeader() {
             className="h-16 w-40 object-contain"
           />
         </Link>
-        <nav className="hidden items-center gap-6 text-sm font-semibold text-[var(--ink-700)] lg:flex">
-          <Link className="hover:text-[var(--green-700)]" href="/#home">
+        <nav className="hidden items-center gap-6 text-sm font-semibold lg:flex">
+          <Link className={navLinkClass(pathname === "/")} href="/">
             Home
           </Link>
-          <Link className="hover:text-[var(--green-700)]" href="/about">
+          <Link className={navLinkClass(pathname === "/about")} href="/about">
             About Us
           </Link>
           <div className="group relative">
             <Link
-              className="inline-flex items-center gap-2 hover:text-[var(--green-700)]"
+              className={`inline-flex items-center gap-2 ${navLinkClass(isProductsPage)}`}
               href="/seeds"
             >
               Products
@@ -62,18 +69,18 @@ export default function SiteHeader() {
             </div>
           </div>
           <Link
-            className="hover:text-[var(--green-700)]"
+            className={navLinkClass(pathname === "/why-choose-us")}
             href="/why-choose-us"
           >
-            Why Choose Us
+            Our Services
           </Link>
           <Link
-            className="hover:text-[var(--green-700)]"
+            className={navLinkClass(pathname === "/")}
             href="/#testimonials"
           >
             Testimonials
           </Link>
-          <Link className="hover:text-[var(--green-700)]" href="/#contact">
+          <Link className={navLinkClass(pathname === "/")} href="/#contact">
             Contact
           </Link>
         </nav>
@@ -93,23 +100,23 @@ export default function SiteHeader() {
       </div>
       {menuOpen && (
         <div className="border-t border-white/40 bg-white/95 px-6 pb-6 pt-4 lg:hidden">
-          <nav className="flex flex-col gap-4 text-sm font-semibold text-[var(--ink-700)]">
+          <nav className="flex flex-col gap-4 text-sm font-semibold">
             <Link
-              className="hover:text-[var(--green-700)]"
-              href="/#home"
+              className={navLinkClass(pathname === "/")}
+              href="/"
               onClick={() => setMenuOpen(false)}
             >
               Home
             </Link>
             <Link
-              className="hover:text-[var(--green-700)]"
+              className={navLinkClass(pathname === "/about")}
               href="/about"
               onClick={() => setMenuOpen(false)}
             >
               About Us
             </Link>
             <Link
-              className="hover:text-[var(--green-700)]"
+              className={navLinkClass(isProductsPage)}
               href="/seeds"
               onClick={() => setMenuOpen(false)}
             >
@@ -146,21 +153,21 @@ export default function SiteHeader() {
               </Link>
             </div>
             <Link
-              className="hover:text-[var(--green-700)]"
+              className={navLinkClass(pathname === "/why-choose-us")}
               href="/why-choose-us"
               onClick={() => setMenuOpen(false)}
             >
-              Why Choose Us
+              Our Services
             </Link>
             <Link
-              className="hover:text-[var(--green-700)]"
+              className={navLinkClass(pathname === "/")}
               href="/#testimonials"
               onClick={() => setMenuOpen(false)}
             >
               Testimonials
             </Link>
             <Link
-              className="hover:text-[var(--green-700)]"
+              className={navLinkClass(pathname === "/")}
               href="/#contact"
               onClick={() => setMenuOpen(false)}
             >

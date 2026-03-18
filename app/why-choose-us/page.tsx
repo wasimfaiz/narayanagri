@@ -50,6 +50,18 @@ const pillars = [
     tone: "from-[var(--green-700)]/15 via-transparent",
   },
   {
+    title: "Advisory Services",
+    description:
+      "Strategic guidance helps farmers make better decisions on crop planning, input use, and farm operations with less guesswork.",
+    detail:
+      "Our advisory support focuses on practical recommendations shaped by field realities, seasonal conditions, and long-term business goals.",
+    gain:
+      "Sharper planning, reduced avoidable mistakes, and more confident day-to-day farm decisions.",
+    points: ["Crop and season planning", "Input optimization advice", "Operational decision support"],
+    image: "/images/whychooseus-img/advisory.jpeg",
+    tone: "from-[var(--green-600)]/15 via-transparent",
+  },
+  {
     title: "Quality-First Practices",
     description:
       "We promote standards that raise value across the supply chain, from clean production methods to post-harvest handling and packaging.",
@@ -184,7 +196,7 @@ export default function WhyChooseUsPage() {
           <div className="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="flex flex-col gap-6">
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--green-700)]">
-                Why Choose Us
+                Our Services
               </p>
               <h1 className="heading-font text-4xl font-semibold text-[var(--ink-900)] md:text-5xl">
                 A learning partner built for real farmers.

@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa6";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+  FaYoutube,
+} from "react-icons/fa6";
 
 export default function SiteFooter() {
   return (
@@ -13,7 +19,7 @@ export default function SiteFooter() {
               alt="Narayana Agri Solutions logo"
               width={200}
               height={80}
-              className="h-16 w-40 object-contain"
+              className="h-16 w-40 object-contain invert"
             />
           </div>
           <p className="text-sm text-white/70">
@@ -22,21 +28,43 @@ export default function SiteFooter() {
           </p>
           <div className="flex gap-3">
             {[
-              { label: "Facebook", icon: FaFacebookF },
-              { label: "Instagram", icon: FaInstagram },
+              {
+                label: "Facebook",
+                icon: FaFacebookF,
+                href: "https://www.facebook.com/share/17yRY6eYGY/",
+              },
+              {
+                label: "Instagram",
+                icon: FaInstagram,
+                href: "https://www.instagram.com/narayanaagrisolutions?igsh=ZXF3eGwxZXFvbnZo",
+              },
+              { label: "LinkedIn", icon: FaLinkedinIn },
               { label: "YouTube", icon: FaYoutube },
-            ].map((item) => (
-              <button
-                key={item.label}
-                aria-label={item.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-sm text-white transition hover:border-white"
-              >
-                <item.icon />
-              </button>
-            ))}
+            ].map((item) =>
+              item.href ? (
+                <a
+                  key={item.label}
+                  aria-label={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-sm text-white transition hover:border-white"
+                >
+                  <item.icon />
+                </a>
+              ) : (
+                <button
+                  key={item.label}
+                  aria-label={item.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-sm text-white transition hover:border-white"
+                >
+                  <item.icon />
+                </button>
+              ),
+            )}
             <a
               aria-label="WhatsApp"
-              href="https://wa.me/918448611390"
+              href="https://wa.me/qr/BMOQTOR2O2HTA1"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-sm text-white transition hover:border-white"
@@ -47,7 +75,7 @@ export default function SiteFooter() {
         </div>
         <div className="grid gap-2 text-sm text-white/70">
           <p className="text-base font-semibold text-white">Quick Links</p>
-          <Link href="/#home" className="hover:text-white">
+          <Link href="/" className="hover:text-white">
             Home
           </Link>
           <Link href="/about" className="hover:text-white">
@@ -57,7 +85,7 @@ export default function SiteFooter() {
             Products
           </Link>
           <Link href="/#why-us" className="hover:text-white">
-            Why Choose Us
+            Our Services
           </Link>
           <Link href="/#contact" className="hover:text-white">
             Contact
