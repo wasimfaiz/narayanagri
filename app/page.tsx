@@ -15,6 +15,9 @@ import {
   FaLocationDot,
   FaMoneyBillWave,
   FaPhone,
+  FaQuoteLeft,
+  FaShieldHeart,
+  FaStar,
   FaTruckFast,
   FaUsers,
   FaWarehouse,
@@ -120,6 +123,12 @@ const testimonials = [
     location: "Maharashtra",
     image: "/images/testimonial-img.jpeg",
   },
+];
+
+const testimonialTrustPoints: { label: string; value: string; icon: IconType }[] = [
+  { label: "Farmer Rating", value: "5.0/5", icon: FaStar },
+  { label: "Verified Reviews", value: "100%", icon: FaCircleCheck },
+  { label: "Trusted Support", value: "Farmer First", icon: FaShieldHeart },
 ];
 
 const contactInfo: { label: string; value: string; icon: IconType }[] = [
@@ -468,18 +477,80 @@ export default function Home() {
 
         <section
           id="testimonials"
-          className="section-pad bg-[var(--green-900)] text-white"
+          className="section-pad relative overflow-hidden bg-[var(--green-900)] text-white"
         >
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
-            <div className="flex flex-col gap-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--green-200)]">
-                Testimonials
-              </p>
-              <h2 className="heading-font text-3xl font-semibold md:text-4xl">
-                What Farmers Say About Us
-              </h2>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,232,207,0.14),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_22%)]" />
+          <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-10">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div className="flex flex-col gap-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--green-200)]">
+                  Testimonials
+                </p>
+                <h2 className="heading-font text-3xl font-semibold md:text-4xl">
+                  What Farmers Say About Us
+                </h2>
+                <p className="max-w-2xl text-sm text-white/72 md:text-base">
+                  Real feedback from farmers who rely on Narayana Agri Solutions
+                  for practical guidance, dependable inputs, and responsive support.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-3">
+                {testimonialTrustPoints.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-white/12 bg-white/8 px-4 py-4 backdrop-blur-sm"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-[var(--green-200)]">
+                      <item.icon />
+                    </div>
+                    <p className="mt-3 text-lg font-semibold text-white">{item.value}</p>
+                    <p className="text-xs uppercase tracking-[0.18em] text-white/60">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+            <div className="grid gap-6 lg:grid-cols-[1.18fr_0.82fr] lg:items-stretch">
+              <div className="grid gap-0">
+                <div className="card-shadow rounded-[2rem] border border-white/12 bg-white/[0.08] p-8 backdrop-blur-md">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-[var(--green-200)]">
+                      <FaQuoteLeft className="text-sm" />
+                      <span className="text-sm font-semibold uppercase tracking-[0.16em] text-white/84">
+                        Featured Review
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1 text-[#f4c542]">
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <FaStar key={index} className="text-sm" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="mt-8 text-xl leading-relaxed text-white/92 md:text-2xl">
+                    "{review.quote}"
+                  </p>
+                  <div className="mt-8 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src={review.image}
+                        alt={review.name}
+                        width={52}
+                        height={52}
+                        className="h-12 w-12 rounded-full object-cover"
+                      />
+                      <div>
+                        <p className="text-base font-semibold text-white">{review.name}</p>
+                        <p className="text-sm text-white/68">{review.location}</p>
+                      </div>
+                    </div>
+                    <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/8 px-4 py-2 text-xs font-semibold text-white">
+                      <FaCircleCheck className="text-[var(--green-200)]" />
+                      Verified Farmer
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden">
               <div className="card-shadow rounded-3xl bg-white/10 p-8">
                 <div className="flex items-center gap-2 text-[var(--green-200)] [&>span:first-child]:text-[#f4c542]">
                   <span className="text-xl">★★★★★</span>
@@ -508,18 +579,21 @@ export default function Home() {
                   </button>
                 </div>
               </div>
+                </div>
+              </div>
               <div className="grid gap-4">
                 {testimonials.map((item, idx) => (
                   <button
                     key={item.name}
                     onClick={() => reviewCarousel.setIndex(idx)}
-                    className={`rounded-3xl border px-5 py-4 text-left transition ${
+                    className={`rounded-[1.75rem] border px-5 py-5 text-left transition ${
                       reviewCarousel.index === idx
-                        ? "border-white/70 bg-white/10"
-                        : "border-white/20 bg-transparent"
+                        ? "border-[var(--green-200)]/60 bg-white/12 shadow-[0_18px_40px_rgba(0,0,0,0.14)]"
+                        : "border-white/14 bg-white/[0.04] hover:bg-white/[0.08]"
                     }`}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-3">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -528,15 +602,25 @@ export default function Home() {
                         className="h-10 w-10 rounded-full object-cover"
                       />
                       <div>
-                        <p className="text-sm font-semibold">{item.name}</p>
-                        <p className="text-xs text-white/70">
+                        <p className="text-sm font-semibold text-white">{item.name}</p>
+                        <p className="text-xs text-white/68">
                           {item.location}
                         </p>
                       </div>
+                      </div>
+                      <div className="flex items-center gap-1 text-[#f4c542]">
+                        {Array.from({ length: 5 }).map((_, starIndex) => (
+                          <FaStar key={starIndex} className="text-[10px]" />
+                        ))}
+                      </div>
                     </div>
-                    <p className="mt-3 text-sm text-white/80">
+                    <p className="mt-4 text-sm leading-6 text-white/80">
                       {item.quote}
                     </p>
+                    <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--green-200)]">
+                      <FaCircleCheck />
+                      Verified review
+                    </div>
                   </button>
                 ))}
               </div>
