@@ -5,10 +5,19 @@ import Image from "next/image";
 import ProductGrid from "./components/ProductGrid";
 import type { IconType } from "react-icons";
 import {
+  FaBuilding,
+  FaCalendarDays,
   FaCircleCheck,
+  FaEnvelope,
+  FaFileInvoice,
   FaHandHoldingHeart,
   FaLeaf,
+  FaLocationDot,
+  FaMoneyBillWave,
+  FaPhone,
   FaTruckFast,
+  FaUsers,
+  FaWarehouse,
 } from "react-icons/fa6";
 
 const heroSlides = [
@@ -63,6 +72,25 @@ const trustCards: { title: string; description: string; icon: IconType }[] = [
   },
 ];
 
+const companyProfileLeft: { label: string; value: string; icon: IconType }[] = [
+  {
+    label: "Nature of Business",
+    value: "Exporter, Manufacturer & Supplier",
+    icon: FaBuilding,
+  },
+  { label: "Year of Establishment", value: "2023", icon: FaCalendarDays },
+  { label: "GST No", value: "10AAJCN0153B1ZB", icon: FaFileInvoice },
+  { label: "Member Since", value: "2023", icon: FaCalendarDays },
+];
+
+const companyProfileRight: { label: string; value: string; icon: IconType }[] = [
+  { label: "No. of Staff", value: "12", icon: FaUsers },
+  { label: "Annual Turnover", value: "Rs 10 Crores", icon: FaMoneyBillWave },
+  { label: "Mode of Payment", value: "Cash Advance (CA)", icon: FaMoneyBillWave },
+  { label: "Production Units", value: "2", icon: FaWarehouse },
+  { label: "Branches", value: "Patna, Noida Sector 125", icon: FaLocationDot },
+];
+
 import {
   machineryProducts,
   medicineProducts,
@@ -91,6 +119,20 @@ const testimonials = [
     name: "Mahesh Patil",
     location: "Maharashtra",
     image: "/images/testimonial-img.jpeg",
+  },
+];
+
+const contactInfo: { label: string; value: string; icon: IconType }[] = [
+  {
+    label: "Address",
+    value: "Near By Cloud 9 School, J.S Lane, Choudhary Tola, Patna-6",
+    icon: FaLocationDot,
+  },
+  { label: "Phone", value: "8448611390", icon: FaPhone },
+  {
+    label: "Email",
+    value: "Contact@narayanaagrisolutions.com",
+    icon: FaEnvelope,
   },
 ];
 
@@ -261,62 +303,34 @@ export default function Home() {
             </div>
             <div className="grid gap-6 rounded-3xl bg-white p-8 soft-shadow md:grid-cols-2">
               <div className="grid gap-3 text-sm text-[var(--ink-700)]">
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    Nature of Business:
-                  </span>{" "}
-                  Exporter, Manufacturer & Supplier
-                </p>
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    Year of Establishment:
-                  </span>{" "}
-                  2023
-                </p>
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    GST No:
-                  </span>{" "}
-                  10AAJCN0153B1ZB
-                </p>
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    Member Since:
-                  </span>{" "}
-                  2023
-                </p>
+                {companyProfileLeft.map((item) => (
+                  <div key={item.label} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-[var(--green-700)]">
+                      <item.icon />
+                    </div>
+                    <p>
+                      <span className="font-semibold text-[var(--ink-900)]">
+                        {item.label}:
+                      </span>{" "}
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
               </div>
               <div className="grid gap-3 text-sm text-[var(--ink-700)]">
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    No. of Staff:
-                  </span>{" "}
-                  12
-                </p>
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    Annual Turnover:
-                  </span>{" "}
-                  Rs 10 Crores
-                </p>
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    Mode of Payment:
-                  </span>{" "}
-                  Cash Advance (CA)
-                </p>
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    Production Units:
-                  </span>{" "}
-                  2
-                </p>
-                <p>
-                  <span className="font-semibold text-[var(--ink-900)]">
-                    Branches:
-                  </span>{" "}
-                  Patna, Noida Sector 125
-                </p>
+                {companyProfileRight.map((item) => (
+                  <div key={item.label} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-[var(--green-700)]/10 text-[var(--green-700)]">
+                      <item.icon />
+                    </div>
+                    <p>
+                      <span className="font-semibold text-[var(--ink-900)]">
+                        {item.label}:
+                      </span>{" "}
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -564,16 +578,21 @@ export default function Home() {
                 <h3 className="text-lg font-semibold text-[var(--ink-900)]">
                   Reach Us
                 </h3>
-                <p className="mt-2 text-sm text-[var(--ink-700)]">
-                  Address: Near By Cloud 9 School, J.S Lane, Choudhary Tola,
-                  Patna-6
-                </p>
-                <p className="text-sm text-[var(--ink-700)]">
-                  Phone: 8448611390
-                </p>
-                <p className="text-sm text-[var(--ink-700)]">
-                  Email: Contact@narayanaagrisolutions.com
-                </p>
+                <div className="mt-3 grid gap-3">
+                  {contactInfo.map((item) => (
+                    <div key={item.label} className="flex items-start gap-3 text-sm text-[var(--ink-700)]">
+                      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-white/70 text-[var(--green-700)]">
+                        <item.icon />
+                      </div>
+                      <p>
+                        <span className="font-semibold text-[var(--ink-900)]">
+                          {item.label}:
+                        </span>{" "}
+                        {item.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
               <a
                 className="rounded-full border border-[var(--green-700)] px-5 py-2 text-sm font-semibold text-[var(--green-800)] transition hover:bg-[var(--green-700)] hover:text-white text-center"
