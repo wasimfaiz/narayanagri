@@ -481,7 +481,7 @@ export default function Home() {
             </div>
             <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div className="card-shadow rounded-3xl bg-white/10 p-8">
-                <div className="flex items-center gap-2 text-[var(--green-200)]">
+                <div className="flex items-center gap-2 text-[var(--green-200)] [&>span:first-child]:text-[#f4c542]">
                   <span className="text-xl">★★★★★</span>
                   <span className="text-sm">5.0 rating</span>
                 </div>
@@ -502,7 +502,8 @@ export default function Home() {
                       <p className="text-sm text-white/70">{review.location}</p>
                     </div>
                   </div>
-                  <button className="rounded-full border border-white/40 px-4 py-2 text-xs font-semibold text-white transition hover:border-white">
+                  <button className="inline-flex items-center gap-2 rounded-full border border-white/40 px-4 py-2 text-xs font-semibold text-white transition hover:border-white">
+                    <FaCircleCheck className="text-[var(--green-200)]" />
                     Verified Farmer
                   </button>
                 </div>
