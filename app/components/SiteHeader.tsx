@@ -8,7 +8,13 @@ import { usePathname } from "next/navigation";
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isProductsPage = ["/seeds", "/medicine", "/machinery", "/tools"].includes(pathname);
+  const isProductsPage = [
+    "/seeds",
+    "/medicine",
+    "/machinery",
+    "/tools",
+    "/organic-food",
+  ].includes(pathname);
   const navLinkClass = (isActive: boolean) =>
     isActive
       ? "text-[var(--green-700)]"
@@ -58,13 +64,13 @@ export default function SiteHeader() {
                 className="rounded-lg px-3 py-2 hover:bg-[var(--green-200)]/60"
                 href="/machinery"
               >
-                Machinery
+                Machinery & Tools
               </Link>
               <Link
                 className="rounded-lg px-3 py-2 hover:bg-[var(--green-200)]/60"
-                href="/tools"
+                href="/organic-food"
               >
-                Tools
+                Organic Food
               </Link>
             </div>
           </div>
@@ -142,14 +148,14 @@ export default function SiteHeader() {
                 href="/machinery"
                 onClick={() => setMenuOpen(false)}
               >
-                Machinery
+                Machinery & Tools
               </Link>
               <Link
                 className="text-sm font-semibold text-[var(--ink-700)] hover:text-[var(--green-700)]"
-                href="/tools"
+                href="/organic-food"
                 onClick={() => setMenuOpen(false)}
               >
-                Tools
+                Organic Food
               </Link>
             </div>
             <Link

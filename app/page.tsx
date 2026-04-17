@@ -97,6 +97,7 @@ const companyProfileRight: { label: string; value: string; icon: IconType }[] = 
 import {
   machineryProducts,
   medicineProducts,
+  organicFoodProducts,
   seedProducts,
   toolsProducts,
 } from "./data/products";
@@ -453,23 +454,23 @@ export default function Home() {
           </div>
           <div id="machinery">
             <ProductGrid
-              title="Agriculture Machinery"
-              subtitle="Reliable equipment for preparation, planting, irrigation, and harvest."
+              title="Machinery and Tools"
+              subtitle="Reliable machinery and durable tools together for preparation, planting, irrigation, and everyday farm work."
               buttonLabel="View Details"
-              items={machineryProducts}
+              items={[...machineryProducts, ...toolsProducts]}
               showHeader
               viewAllHref="/machinery"
               limit={3}
             />
           </div>
-          <div id="tools">
+          <div id="organic-food">
             <ProductGrid
-              title="Farm Tools & Equipment"
-              subtitle="Durable, easy-to-use tools for everyday farm work."
+              title="Organic Food"
+              subtitle="Naturally grown staples and food products selected for purity, taste, and everyday nutrition."
               buttonLabel="Buy Now"
-              items={toolsProducts}
+              items={organicFoodProducts}
               showHeader
-              viewAllHref="/tools"
+              viewAllHref="/organic-food"
               limit={3}
             />
           </div>
@@ -528,7 +529,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="mt-8 text-xl leading-relaxed text-white/92 md:text-2xl">
-                    "{review.quote}"
+                    &ldquo;{review.quote}&rdquo;
                   </p>
                   <div className="mt-8 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-3">

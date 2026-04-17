@@ -55,29 +55,25 @@ export const medicineProducts: Product[] = [
     name: "NutriMax NPK 19-19-19",
     description: "Quick-release balanced fertilizer for fast growth.",
     price: "₹1,050 / 5 kg",
-    image:
-      "https://images.unsplash.com/photo-1582515073490-dc83e5c3f1ed?q=80&w=1200&auto=format&fit=crop",
+      image: "/images/product-img/medicine-img/nitro-king.jpeg",
   },
   {
     name: "RootShield Bio Fungicide",
     description: "Controls soil-borne fungi and supports healthy roots.",
     price: "₹520 / 1 L",
-    image:
-      "https://images.unsplash.com/photo-1581092919537-7d1d4e1c6f87?q=80&w=1200&auto=format&fit=crop",
+      image: "/images/product-img/medicine-img/bio-super-zyme.jpeg",
   },
   {
     name: "PestGuard Insecticide",
     description: "Broad-spectrum control for common sucking pests.",
     price: "₹680 / 1 L",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
+      image: "/images/product-img/medicine-img/dr-agri.jpeg",
   },
   {
     name: "GreenBoost Organic Spray",
     description: "Improves plant immunity and stress tolerance.",
     price: "₹390 / 1 L",
-    image:
-      "https://images.unsplash.com/photo-1487528278747-ba99ed528ebc?q=80&w=1200&auto=format&fit=crop",
+      image: "/images/product-img/medicine-img/refil-ultra.jpeg",
   },
   {
     name: "YieldPlus Micronutrient Mix",
@@ -186,5 +182,50 @@ export const toolsProducts: Product[] = [
     price: "₹320",
     image:
       "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?q=80&w=1200&auto=format&fit=crop",
+  },
+];
+
+export const organicFoodProducts: Product[] = [
+  {
+    name: "Farm Fresh Organic Turmeric",
+    description: "Naturally grown turmeric with strong aroma and rich color.",
+    price: "Rs 220 / kg",
+    image:
+      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Organic Wheat Flour",
+    description: "Stone-ground flour made from chemical-free wheat.",
+    price: "Rs 75 / kg",
+    image:
+      "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Natural Mustard Oil",
+    description: "Cold-pressed mustard oil with authentic flavor and purity.",
+    price: "Rs 190 / L",
+    image:
+      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Organic Pulses Pack",
+    description: "Clean, nutrient-rich dals sourced from trusted organic farms.",
+    price: "Rs 160 / kg",
+    image:
+      "https://images.unsplash.com/photo-1515543904379-3d757afe72e7?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Naturally Grown Rice",
+    description: "Wholesome rice cultivated without synthetic chemicals.",
+    price: "Rs 95 / kg",
+    image:
+      "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    name: "Organic Jaggery Blocks",
+    description: "Traditional jaggery processed for clean sweetness and daily use.",
+    price: "Rs 110 / kg",
+    image:
+      "https://images.unsplash.com/photo-1514516870926-206eb0cf8dbf?q=80&w=1200&auto=format&fit=crop",
   },
 ];
