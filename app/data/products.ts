@@ -193,46 +193,22 @@ export const toolsProducts: Product[] = [
 
 export const organicFoodProducts: Product[] = [
   {
-    name: "Farm Fresh Organic Turmeric",
-    description: "Naturally grown turmeric with strong aroma and rich color.",
-    price: "Rs 220 / kg",
-    image:
-      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=1200&auto=format&fit=crop",
+    name: "Organic Makhana",
+    description: "Premium organic makhana selected for clean taste, light texture, and healthy snacking.",
+    price: "Rs 240 / kg",
+    image: "/images/product-img/organic-img/organic-makhana.jpeg",
   },
   {
-    name: "Organic Wheat Flour",
-    description: "Stone-ground flour made from chemical-free wheat.",
-    price: "Rs 75 / kg",
-    image:
-      "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1200&auto=format&fit=crop",
+    name: "Organic Mushroom",
+    description: "Fresh organic mushrooms grown with care for better flavor, texture, and nutrition.",
+    price: "Rs 180 / kg",
+    image: "/images/product-img/organic-img/organic-mashroom.jpeg",
   },
   {
-    name: "Natural Mustard Oil",
-    description: "Cold-pressed mustard oil with authentic flavor and purity.",
-    price: "Rs 190 / L",
-    image:
-      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "Organic Pulses Pack",
-    description: "Clean, nutrient-rich dals sourced from trusted organic farms.",
-    price: "Rs 160 / kg",
-    image:
-      "https://images.unsplash.com/photo-1515543904379-3d757afe72e7?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "Naturally Grown Rice",
-    description: "Wholesome rice cultivated without synthetic chemicals.",
-    price: "Rs 95 / kg",
-    image:
-      "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "Organic Jaggery Blocks",
-    description: "Traditional jaggery processed for clean sweetness and daily use.",
-    price: "Rs 110 / kg",
-    image:
-      "https://images.unsplash.com/photo-1514516870926-206eb0cf8dbf?q=80&w=1200&auto=format&fit=crop",
+    name: "Organic Strawberry",
+    description: "Naturally grown strawberries with bright color, fresh aroma, and sweet flavor.",
+    price: "Rs 260 / kg",
+    image: "/images/product-img/organic-img/organic-strawberry.jpeg",
   },
 ];
 
