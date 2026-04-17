@@ -116,14 +116,21 @@ export default function SiteFooter() {
                   className="h-48 w-full"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://maps.google.com/maps?q=25.6168639,85.1874319&z=17&output=embed"
+                  src="https://maps.google.com/maps?q=Harihar%20Chamber%2C%20Boaring%20Road%20Chauraha%2C%20Patna%2C%20800001&z=17&output=embed"
                 ></iframe>
               </div>
               <div className="mt-4 flex items-start gap-3 text-sm text-white/82">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.09] text-[var(--green-200)]">
                   <FaLocationDot />
                 </div>
-                <p className="pt-2">Patna, Bihar (25.6168639, 85.1874319)</p>
+                <a
+                  href="https://maps.app.goo.gl/8gQDLBo3NhfrpNn37?g_st=ac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pt-2 transition hover:text-[var(--green-200)]"
+                >
+                  Harihar Chamber, Boaring Road Chauraha, Patna, 800001
+                </a>
               </div>
             </div>
           </div>

@@ -14,6 +14,7 @@ export default function SiteHeader() {
     "/machinery",
     "/tools",
     "/organic-food",
+    "/bonsai",
   ].includes(pathname);
   const navLinkClass = (isActive: boolean) =>
     isActive
@@ -71,6 +72,12 @@ export default function SiteHeader() {
                 href="/organic-food"
               >
                 Organic Food
+              </Link>
+              <Link
+                className="rounded-lg px-3 py-2 hover:bg-[var(--green-200)]/60"
+                href="/bonsai"
+              >
+                Bonsai
               </Link>
             </div>
           </div>
@@ -156,6 +163,13 @@ export default function SiteHeader() {
                 onClick={() => setMenuOpen(false)}
               >
                 Organic Food
+              </Link>
+              <Link
+                className="text-sm font-semibold text-[var(--ink-700)] hover:text-[var(--green-700)]"
+                href="/bonsai"
+                onClick={() => setMenuOpen(false)}
+              >
+                Bonsai
               </Link>
             </div>
             <Link

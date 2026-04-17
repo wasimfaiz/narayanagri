@@ -5,6 +5,7 @@ import {
   FaSeedling,
   FaScrewdriverWrench,
   FaShieldHeart,
+  FaSpa,
 } from "react-icons/fa6";
 
 const services = [
@@ -55,6 +56,18 @@ const services = [
     ],
     href: "/organic-food",
     icon: FaLeaf,
+  },
+  {
+    title: "Bonsai",
+    description:
+      "A dedicated bonsai category featuring decorative living plants for homes, offices, gifting, and green interiors.",
+    points: [
+      "Three bonsai products added",
+      "Ideal for decor and gifting",
+      "Easy-to-browse dedicated page",
+    ],
+    href: "/bonsai",
+    icon: FaSpa,
   },
 ];
 

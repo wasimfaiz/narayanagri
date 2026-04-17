@@ -94,7 +94,27 @@ const companyProfileRight: { label: string; value: string; icon: IconType }[] = 
   { label: "Branches", value: "Patna, Noida Sector 125", icon: FaLocationDot },
 ];
 
+const marketplaceMembers = [
+  {
+    name: "Trade India",
+    className: "border-[#1f5faa]/20 bg-[#eaf3ff] text-[#1f5faa]",
+  },
+  {
+    name: "IndiaMART",
+    className: "border-[#0b5bd3]/20 bg-[#e9f1ff] text-[#0b5bd3]",
+  },
+  {
+    name: "Flipkart",
+    className: "border-[#2874f0]/20 bg-[#edf4ff] text-[#2874f0]",
+  },
+  {
+    name: "Amazon",
+    className: "border-[#ff9900]/25 bg-[#fff4e2] text-[#111827]",
+  },
+];
+
 import {
+  bonsaiProducts,
   machineryProducts,
   medicineProducts,
   organicFoodProducts,
@@ -135,7 +155,7 @@ const testimonialTrustPoints: { label: string; value: string; icon: IconType }[]
 const contactInfo: { label: string; value: string; icon: IconType }[] = [
   {
     label: "Address",
-    value: "Near By Cloud 9 School, J.S Lane, Choudhary Tola, Patna-6",
+    value: "Harihar Chamber, Boaring Road Chauraha, Patna, 800001",
     icon: FaLocationDot,
   },
   { label: "Phone", value: "8448611390", icon: FaPhone },
@@ -216,6 +236,24 @@ export default function Home() {
                     hero.index === idx ? "bg-white" : "bg-white/40"
                   }`}
                 ></button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-[var(--green-200)]/70 bg-white">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-5 md:flex-row md:items-center md:justify-between">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--green-700)]">
+              Marketplace Presence
+            </p>
+            <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:justify-end">
+              {marketplaceMembers.map((marketplace) => (
+                <div
+                  key={marketplace.name}
+                  className={`flex min-w-[140px] items-center justify-center rounded-2xl border px-5 py-3 text-sm font-bold tracking-[0.08em] shadow-[0_10px_24px_rgba(31,60,10,0.05)] ${marketplace.className}`}
+                >
+                  {marketplace.name}
+                </div>
               ))}
             </div>
           </div>
@@ -471,6 +509,17 @@ export default function Home() {
               items={organicFoodProducts}
               showHeader
               viewAllHref="/organic-food"
+              limit={3}
+            />
+          </div>
+          <div id="bonsai">
+            <ProductGrid
+              title="Bonsai"
+              subtitle="Decorative bonsai plants selected for gifting, home styling, and calm green spaces."
+              buttonLabel="Buy Now"
+              items={bonsaiProducts}
+              showHeader
+              viewAllHref="/bonsai"
               limit={3}
             />
           </div>
