@@ -52,42 +52,28 @@ export const seedProducts: Product[] = [
 
 export const medicineProducts: Product[] = [
   {
-    name: "NutriMax NPK 19-19-19",
-    description: "Quick-release balanced fertilizer for fast growth.",
-    price: "â‚¹1,050 / 5 kg",
+    name: "Nitro King",
+    description: "Plant nutrition solution formulated to support stronger growth and healthier crop performance.",
+    price: "₹150/Unit",
     image: "/images/product-img/medicine-img/nitro-king.jpeg",
   },
   {
-    name: "RootShield Bio Fungicide",
-    description: "Controls soil-borne fungi and supports healthy roots.",
-    price: "â‚¹520 / 1 L",
+    name: "Bio Super Zyme",
+    description: "Bio-enzyme based crop support product designed to improve plant vigor and field response.",
+    price: "₹180/KG",
     image: "/images/product-img/medicine-img/bio-super-zyme.jpeg",
   },
   {
-    name: "PestGuard Insecticide",
-    description: "Broad-spectrum control for common sucking pests.",
-    price: "â‚¹680 / 1 L",
+    name: "Dr. Agri",
+    description: "Crop care formulation created for dependable plant support across different growth stages.",
+    price: "₹680 / 1 L",
     image: "/images/product-img/medicine-img/dr-agri.jpeg",
   },
   {
-    name: "GreenBoost Organic Spray",
-    description: "Improves plant immunity and stress tolerance.",
-    price: "â‚¹390 / 1 L",
+    name: "Rifill Ultra",
+    description: "Advanced liquid crop solution aimed at maintaining healthier plants and better field productivity.",
+    price: "₹390 / 1 L",
     image: "/images/product-img/medicine-img/refil-ultra.jpeg",
-  },
-  {
-    name: "YieldPlus Micronutrient Mix",
-    description: "Corrects deficiencies and boosts flowering.",
-    price: "â‚¹540 / 2 kg",
-    image:
-      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "BlossomCare Flower Booster",
-    description: "Enhances fruit set and reduces flower drop.",
-    price: "â‚¹460 / 1 L",
-    image:
-      "https://images.unsplash.com/photo-1475337057874-3b7991e1a4b2?q=80&w=1200&auto=format&fit=crop",
   },
 ];
 
